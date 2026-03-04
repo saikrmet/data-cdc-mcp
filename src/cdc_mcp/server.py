@@ -49,8 +49,9 @@ mcp = FastMCP(
 async def cdc_search_datasets(
     query: Annotated[
         str,
-        "Multi-word search query describing the topic or question. More specific = fewer, "
-        "more relevant results. Example: 'opioid overdose deaths by state 2023'",
+        "Search query using only semantically rich keywords like topics, diseases, etc. — treat this like a search engine. "
+        "Use specific health topic words and population terms. "
+        "Avoid generic words like 'data', 'rates', 'prevalence', 'estimates', 'trends'. "
     ],
     limit: Annotated[
         int,
