@@ -63,10 +63,8 @@ The server validates column names, enforces a hard row cap (default 500) to prev
 ## Installation
 
 ```bash
-python -m pip install -e .
+pip install -e .
 ```
-
-> **Windows note:** If you're using a venv on a path monitored by Windows Defender (e.g. inside OneDrive), small launcher `.exe` files like `pip.exe` may be blocked. Use `python -m pip install -e .` instead — it bypasses the launcher entirely.
 
 ---
 
@@ -107,21 +105,6 @@ Add to `claude_desktop_config.json`:
 ```
 
 Restart Claude Desktop — the 4 CDC tools appear automatically.
-
-> **Windows / Defender:** If the `.exe` launcher is blocked, use `python -m` instead:
-> ```json
-> {
->   "mcpServers": {
->     "data-cdc-gov": {
->       "command": "C:\\path\\to\\venv\\Scripts\\python.exe",
->       "args": ["-m", "cdc_mcp.server"],
->       "env": {
->         "CDC_APP_TOKEN": "your_app_token_here"
->       }
->     }
->   }
-> }
-> ```
 
 ### Claude Code CLI
 
