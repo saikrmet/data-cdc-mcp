@@ -192,7 +192,10 @@ async def cdc_query_dataset(
     where: Annotated[
         str | None,
         "SoQL WHERE clause (omit the '$where=' prefix). "
-        "Examples: \"state = 'NY'\", \"mmwr_year >= 2024\", \"date_extract_y(report_date) = 2024\"",
+        "Examples: \"state = 'NY'\", \"mmwr_year >= 2024\", \"date_extract_y(report_date) = 2024\". "
+        "IMPORTANT: SoQL reserved words used as column names must be backtick-escaped to avoid 400 errors. "
+        "Common reserved column names: `group`, `select`, `where`, `order`, `limit`, `offset`. "
+        "Example: \"`group` = 'By Total'\" not \"group = 'By Total'\".",
     ] = None,
     group_by: Annotated[
         list[str] | None,
